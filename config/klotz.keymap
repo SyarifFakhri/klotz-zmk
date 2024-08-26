@@ -3,8 +3,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define BASE 0
-#define NAV  1
+#define NAV  0
+#define ALPH 1
 #define SYM  2
 #define ADJ  3
 #define OS   4
@@ -17,22 +17,58 @@
 
 / {
     combos {
-            compatible = "zmk,combos";
-            combo_esc {
+        // ALPHA
+        compatible = "zmk,combos";
+        combo_alpha_esc {
+            timeout-ms = <COMBOMS>;
+            key-positions = <0 1>;
+            bindings = <&macro_esc>;
+            layers = <ALPHA>;
+        };
+
+        // SYM ADJ OS
+        compatible = "zmk,combos";
+        combo_to_base {
+            timeout-ms = <COMBOMS>;
+            key-positions = <0 1>;
+            bindings = <&to NAV>;
+            layers = <SYM ADJ OS>;
+        };
+            
+        // NAV 
+        compatible = "zmk,combos";
+            combo_nav_esc {
                 timeout-ms = <COMBOMS>;
                 key-positions = <0 1>;
                 bindings = <&kp ESC>;
-                layers = <BASE>;
-            };
-            
-            compatible = "zmk,combos";
-            combo_to_base {
-                timeout-ms = <COMBOMS>;
-                key-positions = <0 1>;
-                bindings = <&to BASE>;
-                layers = <NAV SYM ADJ>;
+                layers = <NAV>;
             };
 
+        compatible = "zmk,combos";
+            combo_nav_insert {
+                timeout-ms = <COMBOMS>;
+                key-positions = <18 19>;
+                bindings = <&macro_insert>;
+                layers = <NAV>;
+            };
+
+        compatible = "zmk,combos";
+            combo_nav_insert_new_line {
+                timeout-ms = <COMBOMS>;
+                key-positions = <3 4>;
+                bindings = <&macro_insert_new_line_above>;
+                layers = <NAV>;
+            };       
+
+        compatible = "zmk,combos";
+            combo_nav_insert_new_line {
+                timeout-ms = <COMBOMS>;
+                key-positions = <23 24>;
+                bindings = <&macro_insert_new_line>;
+                layers = <NAV>;
+            };           
+        
+        // GLOBAL
             compatible = "zmk,combos";
             combo_lgui {
                 timeout-ms = <COMBOMS>;
@@ -128,10 +164,39 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&to BASE>
+                = <&to NAV>
                 , <&kp ESC>
                 ;
         };        
+
+        macro_insert: macro_insert {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&to ALPH>
+                , <&kp I>
+                ;
+        };       
+
+        macro_insert_new_line: macro_insert_new_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&to ALPH>
+                , <&kp O>
+                ;
+        };     
+
+        macro_insert_new_line_above: macro_insert_new_line_above {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&to ALPH>
+                , <&macro_press &kp LSHFT>
+                , <&kp O>
+                , <&macro_release &kp LSHFT>
+                ;
+        };    
         
         tabcw: tabcw {
             compatible = "zmk,behavior-macro";
@@ -248,31 +313,21 @@
             flavor = "balanced";
             bindings = <&mo>, <&tog>;
             tapping-term-ms = <220>;
+        }; 
+        
+        hsl: hold_sticky_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            bindings = <&mo>, <&sl>;
+            tapping-term-ms = <220>;
         };
     };
 
         keymap {
                 compatible = "zmk,keymap";
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-
-                base_layer {
-// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-display-name= "BASE"                              ;
-// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
- bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
-
-    &ct LGUI Q  &ct LALT W  &ct LCTRL F &ct LSHFT P &kp B           &kp J       &ct RSHFT L &ct RCTRL U &ct RALT Y  &ct RGUI SEMI
-    &ctl NAV A  &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &ctl NAV O
-   &htl NAV NAV &htl SYM SYM &ctl OS DOT &kp D      &kp V           &kp K       &kp H       &kp C       &kp X       &kp Z
-                                        &kp LCTRL   &kp SPACE       &ct RSHFT TAB &kp LALT
-                        >;
-            sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
-                };
 
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
 
                 nav_layer {
 // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -281,10 +336,28 @@ display-name= "NAVI"                              ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
 
-    &trans      &kp N7     &ct LCTRL N8 &kp N9      &kp EQUAL       &kp LBRC    &kp B       &kp UP      &kp W       &kp E
-    &kp TAB     &kp N4      &kp N5      &kp N6      &kp MINUS       &kp RBRC    &kp LEFT    &kp DOWN    &kp RIGHT   &trans
-    &trans      &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &kp DOT     &macro_up   &kp CAPS    &macro_down &trans
+    &mo OS      &ct LALT N7 &ct LCTRL N8 &ct LSHFT N9 &kp HASH      &kp LBRC    &kp B       &kp UP      &kp W       &kp E
+    &kp A       &kp N4      &kp N5      &kp N6      &kp MINUS       &kp RBRC    &kp LEFT    &kp DOWN    &kp RIGHT   &kp V
+ &htl ALPH ALPH &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &kp DOT     &macro_up   &kp CAPS    &macro_down &to ALPH
                                         &kp N0      &kp LALT        &ct RSHFT TAB &mo ADJ     
+                        >;
+            sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                };
+
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+
+                alpha_layer {
+// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+display-name= "ALPH"                              ;
+// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+ bindings = <
+// ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
+
+    &ct LGUI Q  &ct LALT W  &ct LCTRL F &ct LSHFT P &kp B           &kp J       &ct RSHFT L &ct RCTRL U &ct RALT Y  &ct RGUI SEMI
+    &ctl NAV A  &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &ctl NAV O
+   &hsl NAV NAV &hsl SYM SYM &ctl OS DOT &kp D      &kp V           &kp K       &kp H       &kp C       &kp X       &kp Z
+                                        &kp LCTRL   &kp SPACE       &ct RSHFT TAB &kp LALT
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
@@ -299,7 +372,7 @@ display-name= "SYM"                               ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
 
-    &kp AMPS    &trans   &ct LCTRL KP_MULTIPLY &kp GRAVE &kp LBRC      &kp RBRC    &kp AMPS    &kp DLLR    &kp EXCL    &kp COLON
+    &kp AMPS    &trans   &ct LCTRL KP_MULTIPLY &kp GRAVE &kp LBRC   &kp RBRC    &kp AMPS    &kp DLLR    &kp EXCL    &kp COLON
     &kp DLLR    &trans      &kp PRCNT   &kp CARET   &kp LPAR        &kp RPAR    &kp BSLH    &kp SQT     &kp DQT     &kp QMARK
     &trans      &trans      &kp AT      &kp HASH    &kp LBKT        &kp RBKT    &kp COMMA   &kp DOT     &kp FSLH    &kp EQUAL
                                         &kp LCTRL   &kp LALT        &ct RSHFT TAB &mo ADJ
