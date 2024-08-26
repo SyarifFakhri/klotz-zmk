@@ -53,7 +53,7 @@
             };
 
         compatible = "zmk,combos";
-            combo_nav_insert_new_line {
+            combo_nav_insert_new_line_above {
                 timeout-ms = <COMBOMS>;
                 key-positions = <3 4>;
                 bindings = <&macro_insert_new_line_above>;
