@@ -23,7 +23,7 @@
             timeout-ms = <COMBOMS>;
             key-positions = <0 1>;
             bindings = <&macro_esc>;
-            layers = <ALPHA>;
+            layers = <ALPH>;
         };
 
         // SYM ADJ OS
