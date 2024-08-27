@@ -41,6 +41,22 @@
             bindings = <&kp UNDERSCORE>;
             layers = <ALPH>;
         };
+        
+        compatible = "zmk,combos";
+            combo_ret {
+                timeout-ms = <COMBOMS>;
+                key-positions = <13 14>;
+                bindings = <&kp RET>;
+                layers = <ALPH>;
+            };            
+
+        compatible = "zmk,combos";
+            combo_alpha_del {
+                timeout-ms = <COMBOMS>;
+                key-positions = <8 9>;
+                bindings = <&kp DEL>;
+                layers = <ALPH>;
+            };
 
         // SYM ADJ OS
         compatible = "zmk,combos";
@@ -87,11 +103,35 @@
         compatible = "zmk,combos";
             combo_nav_insert_new_line {
                 timeout-ms = <COMBOMS>;
-                key-positions = <23 24>;
+                key-positions = <13 14>;
                 bindings = <&macro_insert_new_line>;
                 layers = <NAV>;
-            };           
+            };
+
+        compatible = "zmk,combos";
+        combo_nav_del {
+            timeout-ms = <COMBOMS>;
+            key-positions = <3 4>;
+            bindings = <&kp D>;
+            layers = <ALPH>;
+        };
         
+        compatible = "zmk,combos";
+        combo_nav_yank {
+            timeout-ms = <COMBOMS>;
+            key-positions = <7 8>;
+            bindings = <&kp Y>;
+            layers = <ALPH>;
+        };
+
+        compatible = "zmk,combos";
+        combo_nav_put {
+            timeout-ms = <COMBOMS>;
+            key-positions = <6 7>;
+            bindings = <&kp P>;
+            layers = <ALPH>;
+        };
+
         // GLOBAL
             compatible = "zmk,combos";
             combo_lgui {
@@ -113,20 +153,7 @@
                 key-positions = <16 17>;
                 bindings = <&kp SPACE>;
             };
-            
-            compatible = "zmk,combos";
-            combo_del {
-                timeout-ms = <COMBOMS>;
-                key-positions = <8 9>;
-                bindings = <&kp DEL>;
-            };
 
-            compatible = "zmk,combos";
-            combo_ret {
-                timeout-ms = <COMBOMS>;
-                key-positions = <13 14>;
-                bindings = <&kp RET>;
-            }; 
 
             compatible = "zmk,combos";
             combo_ctrlz {
@@ -180,6 +207,15 @@
         };        
 
         // VIM Macros
+        macro_change: macro_change {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&to ALPH>
+                , <&kp C>
+                ;
+        };       
+
         macro_insert: macro_insert {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -202,8 +238,8 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&to ALPH>
-                , <&kp F>
+                = <&kp F>
+                , <&sl ALPH>
                 ;
         };
 
@@ -365,9 +401,9 @@ display-name= "NAVI"                              ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
 
-    &mo OS      &ct LALT N7 &ct LCTRL N8 &ct LSHFT N9 &kp HASH      &kp LBRC    &kp B       &kp UP      &kp W       &kp E
+  &macro_change &ct LALT N7 &ct LCTRL N8 &ct LSHFT N9 &kp HASH      &kp LBRC    &kp B       &kp UP      &kp W       &kp E
     &macro_find &kp N4      &kp N5      &kp N6      &kp MINUS       &kp RBRC    &kp LEFT    &kp DOWN    &kp RIGHT   &kp V
- &htl ALPH ALPH &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &kp DOT     &macro_up   &kp CAPS    &macro_down &to ALPH
+    &to ALPH    &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &kp DOT     &macro_up   &macro_down &kp X       &to ALPH
                                         &kp N0      &kp LALT        &ct RSHFT TAB &mo ADJ     
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -384,8 +420,8 @@ display-name= "ALPH"                              ;
 // ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
 
     &ct LGUI Q  &ct LALT W  &ct LCTRL F &ct LSHFT P &kp B           &kp J       &ct RSHFT L &ct RCTRL U &ct RALT Y  &ct RGUI SEMI
-    &ctl NAV A  &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &ctl NAV O
-   &hsl NAV NAV &hsl SYM SYM &ctl OS DOT &kp D      &kp V           &kp K       &kp H       &kp C       &kp X       &kp Z
+    &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &ctl NAV O
+    &to NAV    &hsl SYM SYM &ctl OS DOT &kp D       &kp V           &kp K       &kp H       &kp C       &kp X       &kp Z
                                         &kp LCTRL   &kp SPACE       &ct RSHFT TAB &kp LALT
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
