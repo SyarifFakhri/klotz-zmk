@@ -26,6 +26,22 @@
             layers = <ALPH>;
         };
 
+        compatible = "zmk,combos";
+        combo_alpha_bspc {
+            timeout-ms = <COMBOMS>;
+            key-positions = <3 4>;
+            bindings = <&kp BSPC>;
+            layers = <ALPH>;
+        };            
+
+        compatible = "zmk,combos";
+        combo_underscore {
+            timeout-ms = <COMBOMS>;
+            key-positions = <18 19>;
+            bindings = <&kp UNDERSCORE>;
+            layers = <ALPH>;
+        };
+
         // SYM ADJ OS
         compatible = "zmk,combos";
         combo_to_base {
@@ -49,6 +65,14 @@
                 timeout-ms = <COMBOMS>;
                 key-positions = <18 19>;
                 bindings = <&macro_insert>;
+                layers = <NAV>;
+            };
+        
+        compatible = "zmk,combos";
+            combo_nav_append {
+                timeout-ms = <COMBOMS>;
+                key-positions = <11 12>;
+                bindings = <&macro_append>;
                 layers = <NAV>;
             };
 
@@ -91,13 +115,6 @@
             };
             
             compatible = "zmk,combos";
-            combo_bspc {
-                timeout-ms = <COMBOMS>;
-                key-positions = <3 4>;
-                bindings = <&kp BSPC>;
-            };
-            
-            compatible = "zmk,combos";
             combo_del {
                 timeout-ms = <COMBOMS>;
                 key-positions = <8 9>;
@@ -110,14 +127,7 @@
                 key-positions = <13 14>;
                 bindings = <&kp RET>;
             }; 
-            
-            compatible = "zmk,combos";
-            combo_underscore {
-                timeout-ms = <COMBOMS>;
-                key-positions = <18 19>;
-                bindings = <&kp UNDERSCORE>;
-            };
-            
+
             compatible = "zmk,combos";
             combo_ctrlz {
                 timeout-ms = <COMBOMS>;
@@ -169,6 +179,7 @@
                 ;
         };        
 
+        // VIM Macros
         macro_insert: macro_insert {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -177,6 +188,24 @@
                 , <&kp I>
                 ;
         };       
+
+        macro_append: macro_append {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&to ALPH>
+                , <&kp A>
+                ;
+        };
+        
+        macro_find: macro_find {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&to ALPH>
+                , <&kp F>
+                ;
+        };
 
         macro_insert_new_line: macro_insert_new_line {
             compatible = "zmk,behavior-macro";
@@ -337,7 +366,7 @@ display-name= "NAVI"                              ;
 // ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
 
     &mo OS      &ct LALT N7 &ct LCTRL N8 &ct LSHFT N9 &kp HASH      &kp LBRC    &kp B       &kp UP      &kp W       &kp E
-    &kp A       &kp N4      &kp N5      &kp N6      &kp MINUS       &kp RBRC    &kp LEFT    &kp DOWN    &kp RIGHT   &kp V
+    &macro_find &kp N4      &kp N5      &kp N6      &kp MINUS       &kp RBRC    &kp LEFT    &kp DOWN    &kp RIGHT   &kp V
  &htl ALPH ALPH &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &kp DOT     &macro_up   &kp CAPS    &macro_down &to ALPH
                                         &kp N0      &kp LALT        &ct RSHFT TAB &mo ADJ     
                         >;
