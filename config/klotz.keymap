@@ -122,7 +122,7 @@
             };
             
             compatible = "zmk,combos";
-            combo_ctrl_shift {
+            combo_shift_alt {
                 timeout-ms = <COMBOMS>;
                 key-positions = <16 18>;
                 bindings
