@@ -97,11 +97,36 @@
             };
             
            compatible = "zmk,combos";
-            combo_ctrlv {
+           combo_ctrlv {
                 timeout-ms = <COMBOMS>;
                 key-positions = <23 24>;
                 bindings
                   = <&macro_ctrlv>;
+            };
+
+            // Mod macros
+           compatible = "zmk,combos";
+           combo_ctrl_alt {
+                timeout-ms = <COMBOMS>;
+                key-positions = <17 18>;
+                bindings
+                  = <&macro_sticky_ctrl_alt>;
+            };
+            
+            compatible = "zmk,combos";
+            combo_ctrl_shift {
+                timeout-ms = <COMBOMS>;
+                key-positions = <16 17>;
+                bindings
+                  = <&macro_sticky_ctrl_shift>;
+            };
+            
+            compatible = "zmk,combos";
+            combo_ctrl_shift {
+                timeout-ms = <COMBOMS>;
+                key-positions = <16 18>;
+                bindings
+                  = <&macro_sticky_shift_alt>;
             };
     };
 
@@ -185,6 +210,33 @@
                 = <&macro_press &kp LCTRL>
                 , <&macro_tap &kp S>
                 , <&macro_release &kp LCTRL>
+                ;
+        }; 
+         
+        macro_sticky_ctrl_alt: macro_sticky_ctrl_alt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &sk LCTRL>
+                , <&macro_tap &sk LALT>
+                ;
+        }; 
+    
+        macro_sticky_ctrl_shift: macro_sticky_ctrl_shift {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &sk LCTRL>
+                , <&macro_tap &sk LSHFT>
+                ;
+        }; 
+
+        macro_sticky_shift_alt: macro_sticky_shift_alt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &sk LSHFT>
+                , <&macro_tap &sk LALT>
                 ;
         }; 
         
