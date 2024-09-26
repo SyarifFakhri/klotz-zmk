@@ -308,7 +308,6 @@
             bindings = <&mo>;
             release-after-ms = <2000>;
             quick-release;
-            ignore-modifiers;
         };
 
         skq: sticky_key_quick_release {
