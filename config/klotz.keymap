@@ -225,8 +225,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &sk LCTRL>
-                , <&macro_tap &sk LSHFT>
+                = <&sk LC(LSHFT)>
                 ;
         }; 
 
@@ -234,8 +233,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &sk LSHFT>
-                , <&macro_tap &sk LALT>
+                = <&sk LS(LALT)>
                 ;
         }; 
         
