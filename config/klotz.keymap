@@ -134,14 +134,14 @@
                 timeout-ms = <COMBOMS>;
                 key-positions = <26 27>;
                 bindings
-                  = <&kp RCTRL>;
+                  = <&skq RCTRL>;
 
             compatible = "zmk,combos";
             combo_alt {
                 timeout-ms = <COMBOMS>;
                 key-positions = <26 27>;
                 bindings
-                  = <&kp RALT>;
+                  = <&skq RALT>;
     };
 
     macros {
