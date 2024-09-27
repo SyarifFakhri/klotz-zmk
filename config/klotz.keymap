@@ -103,6 +103,14 @@
                 bindings
                   = <&macro_ctrlv>;
             };
+           
+           compatible = "zmk,combos";
+           combo_caps {
+                timeout-ms = <COMBOMS>;
+                key-positions = <10 11>;
+                bindings
+                  = <&kp CAPS>;
+            };
 
             // Mod macros
            compatible = "zmk,combos";
@@ -397,10 +405,10 @@ display-name= "BASE"                              ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
 
-    &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SEMI
+    &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &key_repeat
     &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
    &htl ADJ NAV &csl SYM    &kp DOT     &kp D       &kp V           &kp K       &kp H       &kp C       &kp X       &kp Z
-                                        &csl NAV    &kp SPACE       &skq RSHFT  &csl NAV
+                                        &csl NAV    &kp SPACE       &skq RSHFT  &to NAV
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
@@ -415,10 +423,10 @@ display-name= "NAVI"                              ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
 
-    &trans      &kp N7      &kp N8      &kp N9      &kp EQUAL       &os_hk V    &kp LEFT   &kp UP      &kp DOWN    &kp RIGHT
-    &kp TAB     &kp N4      &kp N5      &kp N6      &kp MINUS       &os_hk C    &skq RSHFT &skq RCTRL  &skq LALT   &skq LGUI
-    &trans      &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &os_hk F    &macro_up  &kp UNDERSCORE &macro_down &trans
-                                        &kp N0      &kp SPACE       &kp SPACE   &skq RSHFT
+    &trans      &kp N7      &kp N8      &kp N9      &kp EQUAL       &trans      &kp LEFT   &kp UP      &kp DOWN    &kp RIGHT
+    &kp TAB     &kp N4      &kp N5      &kp N6      &kp MINUS       &trans      &os_hk F   &os_hk C    &os_hk V    &trans
+    &trans      &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &trans      &macro_up  &trans      &macro_down &trans
+                                        &kp N0      &kp SPACE       &skq RSHFT  &to BASE
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
@@ -435,8 +443,8 @@ display-name= "SYM"                               ;
 
     &trans      &kp LALT  &kp KP_MULTIPLY &kp GRAVE &kp LBRC        &kp RBRC    &kp AMPS    &kp LT      &kp GT      &kp COLON
     &trans      &kp DLLR    &kp PRCNT   &kp EXCL    &kp LPAR        &kp RPAR    &kp BSLH    &kp SQT     &kp DQT     &kp QMARK
-    &kp CARET   &kp CAPS    &kp AT      &kp HASH    &kp LBKT        &kp RBKT    &kp COMMA   &kp DOT     &kp FSLH    &kp EQUAL
-                                        &trans      &kp SPACE       &kp SPACE   &skq RSHFT
+    &kp CARET   &kp CAPS    &kp AT      &kp HASH    &kp LBKT        &kp RBKT    &kp COMMA   &kp UNDERSCORE &kp FSLH &kp EQUAL
+                                        &trans      &kp SPACE       &kp SEMI    &kp PLUS
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
