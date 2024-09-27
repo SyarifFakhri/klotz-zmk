@@ -128,6 +128,20 @@
                 bindings
                   = <&macro_sticky_shift_alt>;
             };
+            
+            compatible = "zmk,combos";
+            combo_ctrl {
+                timeout-ms = <COMBOMS>;
+                key-positions = <26 27>;
+                bindings
+                  = <&kp RCTRL>;
+
+            compatible = "zmk,combos";
+            combo_alt {
+                timeout-ms = <COMBOMS>;
+                key-positions = <26 27>;
+                bindings
+                  = <&kp RALT>;
     };
 
     macros {
