@@ -146,7 +146,7 @@
             };
             
             compatible = "zmk,combos";
-            combo_ctrl {
+            combo_ctrl_r {
                 timeout-ms = <COMBOMS>;
                 key-positions = <26 27>;
                 bindings
@@ -154,11 +154,27 @@
             };
 
             compatible = "zmk,combos";
-            combo_alt {
+            combo_alt_r {
                 timeout-ms = <COMBOMS>;
                 key-positions = <27 28>;
                 bindings
                   = <&skq RALT>;
+            };
+            
+            compatible = "zmk,combos";
+            combo_ctrl_l {
+                timeout-ms = <COMBOMS>;
+                key-positions = <12 13>;
+                bindings
+                  = <&skq LCTRL>;
+            };
+
+            compatible = "zmk,combos";
+            combo_alt_l {
+                timeout-ms = <COMBOMS>;
+                key-positions = <11 12>;
+                bindings
+                  = <&skq LALT>;
             };
     };
 
