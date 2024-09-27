@@ -135,6 +135,7 @@
                 key-positions = <26 27>;
                 bindings
                   = <&skq RCTRL>;
+            };
 
             compatible = "zmk,combos";
             combo_alt {
@@ -142,6 +143,7 @@
                 key-positions = <26 27>;
                 bindings
                   = <&skq RALT>;
+            };
     };
 
     macros {
