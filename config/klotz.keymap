@@ -128,6 +128,14 @@
                 bindings
                   = <&macro_sticky_ctrl_shift>;
             };
+
+            compatible = "zmk,combos";
+            combo_shift_alt_ctrl {
+                timeout-ms = <COMBOMS>;
+                key-positions = <16 17 18>;
+                bindings
+                  = <&macro_sticky_shift_alt_ctrl>;
+            };
             
             compatible = "zmk,combos";
             combo_shift_alt {
@@ -261,6 +269,14 @@
                 ;
         }; 
         
+        macro_sticky_shift_alt: macro_sticky_shift_alt_ctrl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&sk LC(LA(LSHFT))>
+                ;
+        };        
+
         macro_up: macro_up {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
