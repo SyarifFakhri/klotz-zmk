@@ -269,7 +269,7 @@
                 ;
         }; 
         
-        macro_sticky_shift_alt: macro_sticky_shift_alt_ctrl {
+        macro_sticky_shift_alt_ctrl: macro_sticky_shift_alt_ctrl {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
