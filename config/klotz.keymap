@@ -166,7 +166,7 @@
                 timeout-ms = <COMBOMS>;
                 key-positions = <12 13>;
                 bindings
-                  = <&skq LCTRL>;
+                  = <&kp LCTRL>;
             };
 
             compatible = "zmk,combos";
@@ -174,7 +174,7 @@
                 timeout-ms = <COMBOMS>;
                 key-positions = <11 12>;
                 bindings
-                  = <&skq LALT>;
+                  = <&kp LALT>;
             };
     };
 
