@@ -22,7 +22,7 @@
             compatible = "zmk,combos";
             combo_esc {
                 timeout-ms = <COMBOMS>;
-                key-positions = <0 1>;
+                key-positions = <1 2>;
                 bindings = <&kp ESC>;
                 layers = <BASE>;
             };
@@ -30,7 +30,7 @@
             compatible = "zmk,combos";
             combo_to_base {
                 timeout-ms = <COMBOMS>;
-                key-positions = <0 1>;
+                key-positions = <1 2>;
                 bindings = <&to BASE>;
                 layers = <NAV SYM ADJ OSL>;
             };
