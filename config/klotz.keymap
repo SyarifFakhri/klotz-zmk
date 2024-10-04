@@ -5,10 +5,11 @@
 
 #define BASE 0
 #define NAV  1
-#define SYM  2
-#define ADJ  3
-#define JMP  4
-#define OSL  5
+#define RNAV 2
+#define SYM  3
+#define ADJ  4
+#define JMP  5
+#define OSL  6
 
 #define COMBOMS 20
 
@@ -372,6 +373,16 @@
                 , <&macro_tap &kp MACRO_PLACEHOLDER>
                 ;
         };
+
+        m_b: m_b {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings
+                = <&to BASE> 
+                , <&macro_param_1to1>
+                , <&macro_tap &kp MACRO_PLACEHOLDER>
+                ;
+        };
     };
 
     behaviors {
@@ -439,12 +450,11 @@ display-name= "BASE"                              ;
 
     &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &key_repeat
     &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
-   &htl ADJ NAV &csl SYM    &kp DOT     &kp D       &kp V           &kp K       &kp H       &kp C       &kp X       &kp Z
-                                        &csl NAV    &kp SPACE       &skq RSHFT  &csl NAV
+    &mo ADJ     &csl SYM    &kp DOT     &kp D       &kp V           &kp K       &kp H       &kp C       &kp X       &kp Z
+                                        &csl NAV    &kp SPACE       &skq RSHFT  &to NAV
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
-
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 
@@ -458,7 +468,24 @@ display-name= "NAVI"                              ;
     &to BASE    &kp N7      &kp N8      &kp N9      &kp EQUAL       &os_hk F    &kp LEFT   &kp UP      &kp DOWN    &kp RIGHT
     &kp TAB     &kp N4      &kp N5      &kp N6      &kp MINUS       &os_hk C    &skq RSHFT &skq RCTRL  &skq RALT   &skq LGUI
     &trans      &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &os_hk V    &macro_up  &trans      &macro_down &trans
-                                        &kp N0      &kp SPACE       &skq RSHFT  &to NAV
+                                        &kp N0      &kp SPACE       &skq RSHFT  &trans
+                        >;
+            sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                };
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+
+                rnav_layer {
+// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+display-name= "RNAVI"                              ;
+// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+ bindings = <
+// ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
+
+    &to BASE    &kp N7      &kp N8      &kp N9      &kp EQUAL       &trans      &m_b LEFT  &m_b UP     &m_b DOWN   &m_b RIGHT
+    &kp TAB     &kp N4      &kp N5      &kp N6      &kp MINUS       &trans      &skq RSHFT &skq RCTRL  &skq RALT   &skq LGUI
+    &trans      &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &trans      &macro_up  &trans      &macro_down &trans
+                                        &kp N0      &kp SPACE       &skq RSHFT  &trans
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
