@@ -451,7 +451,7 @@ display-name= "BASE"                              ;
     &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &key_repeat
     &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
     &mo ADJ     &csl SYM    &kp DOT     &kp D       &kp V           &kp K       &kp H       &kp C       &kp X       &kp Z
-                                        &csl NAV    &kp SPACE       &skq RSHFT  &to NAV
+                                        &csl NAV    &kp SPACE       &skq RSHFT  &to RNAV
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
