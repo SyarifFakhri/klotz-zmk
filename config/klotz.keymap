@@ -482,10 +482,10 @@ display-name= "RNAVI"                              ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
 
-    &to BASE    &kp N7      &kp N8      &kp N9      &trans         &trans      &m_b LEFT  &m_b UP     &m_b DOWN   &m_b RIGHT
-    &m_b TAB    &kp N4      &kp N5      &kp N6      &m_b MINUS     &trans      &skq RSHFT &skq RCTRL  &skq RALT   &skq LGUI
+    &m_b TAB    &kp N7      &kp N8      &kp N9      &trans         &trans      &m_b LEFT  &m_b UP     &m_b DOWN   &m_b RIGHT
+    &kp N0      &kp N4      &kp N5      &kp N6      &m_b MINUS     &trans      &skq RSHFT &skq RCTRL  &skq RALT   &skq LGUI
     &trans      &kp N1      &kp N2      &kp N3      &m_b KP_MULTIPLY &trans    &macro_up  &trans      &macro_down &trans
-                                        &kp N0      &kp SPACE       &skq RSHFT  &trans
+                                        &trans      &kp SPACE       &skq RSHFT &trans
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
