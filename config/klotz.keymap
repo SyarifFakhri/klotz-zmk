@@ -465,10 +465,10 @@ display-name= "NAVI"                              ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
 
-    &to BASE    &kp N7      &kp N8      &kp N9      &kp EQUAL       &os_hk F    &kp LEFT   &kp UP      &kp DOWN    &kp RIGHT
-    &kp TAB     &kp N4      &kp N5      &kp N6      &kp MINUS       &os_hk C    &skq RSHFT &skq RCTRL  &skq RALT   &skq LGUI
-    &trans      &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &os_hk V    &macro_up  &trans      &macro_down &trans
-                                        &kp N0      &kp SPACE       &skq RSHFT  &trans
+    &kp TAB    &kp N7      &kp N8      &kp N9      &kp EQUAL       &os_hk F    &kp LEFT   &kp UP      &kp DOWN    &kp RIGHT
+    &kp N0     &kp N4      &kp N5      &kp N6      &kp MINUS       &os_hk C    &skq RSHFT &skq RCTRL  &skq RALT   &skq LGUI
+    &trans     &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &os_hk V    &macro_up  &trans      &macro_down &trans
+                                       &trans      &kp SPACE       &skq RSHFT  &trans
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
