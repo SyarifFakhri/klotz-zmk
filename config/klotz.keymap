@@ -450,8 +450,8 @@ display-name= "BASE"                              ;
 
     &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &key_repeat
     &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
-    &mo ADJ     &csl SYM    &kp DOT     &kp D       &kp V           &kp K       &kp H       &kp C       &kp X       &kp Z
-                                        &csl NAV    &kp SPACE       &skq RSHFT  &to RNAV
+    &mo ADJ     &trans      &kp DOT     &kp D       &kp V           &kp K       &kp H       &kp C       &kp X       &kp Z
+                                        &csl NAV    &kp SPACE       &skq RSHFT  &csl SYM
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
@@ -468,7 +468,7 @@ display-name= "NAVI"                              ;
     &kp TAB    &kp N7      &kp N8      &kp N9      &kp EQUAL       &os_hk F    &kp LEFT   &kp UP      &kp DOWN    &kp RIGHT
     &kp N0     &kp N4      &kp N5      &kp N6      &kp MINUS       &os_hk C    &skq RSHFT &skq RCTRL  &skq RALT   &skq LGUI
     &trans     &kp N1      &kp N2      &kp N3      &kp KP_MULTIPLY &os_hk V    &macro_up  &trans      &macro_down &trans
-                                       &trans      &kp SPACE       &skq RSHFT  &trans
+                                       &trans      &kp SPACE       &skq RSHFT  &to RNAV
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
