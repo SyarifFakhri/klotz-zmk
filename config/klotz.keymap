@@ -493,9 +493,9 @@ display-name= "SYM"                               ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
 
-    &kp PLUS    &kp UNDER   &kp KP_MULTIPLY &kp GRAVE &kp LBRC      &kp RBRC    &kp AMPS    &kp LT      &kp GT      &kp COLON
-    &kp EXCL    &kp DLLR    &kp PRCNT   &kp SEMI    &kp LPAR        &kp RPAR    &kp BSLH    &kp SQT     &kp DQT     &kp QMARK
-    &kp CARET   &kp TILDE   &kp AT      &kp HASH    &kp LBKT        &kp RBKT    &kp COMMA   &trans      &kp FSLH &kp EQUAL
+    &kp PLUS    &kp UNDER   &kp KP_MULTIPLY &kp LBRC &kp RBRC       &kp GRAVE   &kp AMPS    &kp LT      &kp GT      &kp COLON
+    &kp EXCL    &kp PRCNT   &kp SEMI    &kp LPAR    &kp RPAR        &kp DLLR    &kp BSLH    &kp SQT     &kp DQT     &kp QMARK
+    &kp CARET   &kp HASH    &kp AT      &kp LBKT    &kp RBKT        &kp TILDE    &kp COMMA   &trans      &kp FSLH &kp EQUAL
                                         &kp PIPE    &trans          &trans      &kp LGUI
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
