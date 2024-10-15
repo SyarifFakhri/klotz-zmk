@@ -98,14 +98,6 @@
                   = <&macro_ctrlv>;
             };
            
-           compatible = "zmk,combos";
-           combo_caps {
-                timeout-ms = <COMBOMS>;
-                key-positions = <10 11>;
-                bindings
-                  = <&kp CAPS>;
-            };
-
             // Mod macros
            compatible = "zmk,combos";
            combo_ctrl_alt {
@@ -496,7 +488,7 @@ display-name= "SYM"                               ;
     &kp PLUS    &kp UNDER   &kp KP_MULTIPLY &kp LBRC &kp RBRC       &kp GRAVE   &kp AMPS    &trans      &kp FSLH    &kp COLON
     &kp EXCL    &kp PRCNT   &kp SEMI    &kp LPAR    &kp RPAR        &kp DLLR    &kp BSLH    &kp SQT     &kp DQT     &kp QMARK
     &kp CARET   &kp HASH    &kp AT      &kp LBKT    &kp RBKT        &kp TILDE   &trans      &trans      &trans      &kp EQUAL
-                                        &kp PIPE    &trans          &trans      &kp LGUI
+                                        &kp PIPE    &trans          &kp CAPS    &kp LGUI
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
