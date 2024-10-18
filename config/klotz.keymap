@@ -10,6 +10,7 @@
 #define ADJ  4
 #define JMP  5
 #define OSL  6
+#define NON_BASE_LAYERS layers = <NAV SYM ADJ OSL RNAV>;
 
 #define COMBOMS 20
 
@@ -19,6 +20,51 @@
 
 / {
     combos {
+            // NON ALPHA LAYER
+            compatible = "zmk,combos";
+            combo_to_base {
+                timeout-ms = <COMBOMS>;
+                key-positions = <1 2>;
+                bindings = <&to BASE>;
+                NON_BASE_LAYERS
+            };
+
+           compatible = "zmk,combos";
+           combo_ctrl_alt {
+                timeout-ms = <COMBOMS>;
+                key-positions = <17 18>;
+                bindings
+                  = <&macro_sticky_ctrl_alt>;
+                NON_BASE_LAYERS
+            };
+            
+            compatible = "zmk,combos";
+            combo_ctrl_shift {
+                timeout-ms = <COMBOMS>;
+                key-positions = <16 17>;
+                bindings
+                  = <&macro_sticky_ctrl_shift>;
+                NON_BASE_LAYERS
+            };
+
+            compatible = "zmk,combos";
+            combo_shift_alt_ctrl {
+                timeout-ms = <COMBOMS>;
+                key-positions = <16 17 18>;
+                bindings
+                  = <&macro_sticky_shift_alt_ctrl>;
+                NON_BASE_LAYERS
+            };
+            
+            compatible = "zmk,combos";
+            combo_shift_alt {
+                timeout-ms = <COMBOMS>;
+                key-positions = <16 18>;
+                bindings
+                  = <&macro_sticky_shift_alt>;
+                NON_BASE_LAYERS
+            };
+
         // BASE
             compatible = "zmk,combos";
             combo_esc {
@@ -28,14 +74,6 @@
                 layers = <BASE>;
             };
             
-            compatible = "zmk,combos";
-            combo_to_base {
-                timeout-ms = <COMBOMS>;
-                key-positions = <1 2>;
-                bindings = <&to BASE>;
-                layers = <NAV SYM ADJ OSL RNAV>;
-            };
-
             // GLOBAL
             compatible = "zmk,combos";
             combo_bspc {
@@ -99,53 +137,6 @@
             };
            
             // Mod macros
-           compatible = "zmk,combos";
-           combo_ctrl_alt {
-                timeout-ms = <COMBOMS>;
-                key-positions = <17 18>;
-                bindings
-                  = <&macro_sticky_ctrl_alt>;
-            };
-            
-            compatible = "zmk,combos";
-            combo_ctrl_shift {
-                timeout-ms = <COMBOMS>;
-                key-positions = <16 17>;
-                bindings
-                  = <&macro_sticky_ctrl_shift>;
-            };
-
-            compatible = "zmk,combos";
-            combo_shift_alt_ctrl {
-                timeout-ms = <COMBOMS>;
-                key-positions = <16 17 18>;
-                bindings
-                  = <&macro_sticky_shift_alt_ctrl>;
-            };
-            
-            compatible = "zmk,combos";
-            combo_shift_alt {
-                timeout-ms = <COMBOMS>;
-                key-positions = <16 18>;
-                bindings
-                  = <&macro_sticky_shift_alt>;
-            };
-            
-            compatible = "zmk,combos";
-            combo_ctrl_r {
-                timeout-ms = <COMBOMS>;
-                key-positions = <26 27>;
-                bindings
-                  = <&skq RCTRL>;
-            };
-
-            compatible = "zmk,combos";
-            combo_alt_r {
-                timeout-ms = <COMBOMS>;
-                key-positions = <27 28>;
-                bindings
-                  = <&skq RALT>;
-            };
             
             compatible = "zmk,combos";
             combo_ctrl_l {
