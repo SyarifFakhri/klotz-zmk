@@ -80,6 +80,7 @@
                 key-positions = <11 12>;
                 bindings
                   = <&kp LALT>;
+                NON_BASE_LAYERS
             };
 
         // BASE
@@ -89,7 +90,6 @@
                 key-positions = <1 2>;
                 bindings = <&kp ESC>;
                 layers = <BASE>;
-                NON_BASE_LAYERS
             };
             
             // GLOBAL
