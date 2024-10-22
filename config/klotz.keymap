@@ -64,6 +64,23 @@
                   = <&macro_sticky_shift_alt>;
                 NON_BASE_LAYERS
             };
+                        
+            compatible = "zmk,combos";
+            combo_ctrl_l {
+                timeout-ms = <COMBOMS>;
+                key-positions = <12 13>;
+                bindings
+                  = <&kp LCTRL>;
+                NON_BASE_LAYERS
+            };
+
+            compatible = "zmk,combos";
+            combo_alt_l {
+                timeout-ms = <COMBOMS>;
+                key-positions = <11 12>;
+                bindings
+                  = <&kp LALT>;
+            };
 
         // BASE
             compatible = "zmk,combos";
@@ -72,6 +89,7 @@
                 key-positions = <1 2>;
                 bindings = <&kp ESC>;
                 layers = <BASE>;
+                NON_BASE_LAYERS
             };
             
             // GLOBAL
@@ -137,22 +155,7 @@
             };
            
             // Mod macros
-            
-            compatible = "zmk,combos";
-            combo_ctrl_l {
-                timeout-ms = <COMBOMS>;
-                key-positions = <12 13>;
-                bindings
-                  = <&kp LCTRL>;
-            };
 
-            compatible = "zmk,combos";
-            combo_alt_l {
-                timeout-ms = <COMBOMS>;
-                key-positions = <11 12>;
-                bindings
-                  = <&kp LALT>;
-            };
     };
 
     macros {
