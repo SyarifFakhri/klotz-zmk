@@ -460,7 +460,7 @@ display-name= "NAVI"                              ;
     &kp TAB    &kp N7      &kp N8      &kp N9      &os_hk A        &os_hk F    &kp LEFT   &kp UP      &kp DOWN    &kp RIGHT
     &kp N0     &kp N4      &kp N5      &kp N6      &os_hk B        &os_hk C    &skq RSHFT &skq RCTRL  &skq RALT   &skq LGUI
     &kp ESC    &kp N1      &kp N2      &kp N3      &os_hk C        &os_hk V    &macro_up  &kp RET     &macro_down &to CBASE
-                                       &trans      &kp SPACE       &skq RSHFT  &to RNAV
+                                       &trans      &kp SPACE       &kp LC(O)   &to RNAV
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
