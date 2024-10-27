@@ -6,10 +6,11 @@
 #define BASE 0
 #define NAV  1
 #define RNAV 2
-#define SYM  3
-#define ADJ  4
-#define JMP  5
-#define OSL  6
+#define CBASE 3
+#define SYM  4
+#define ADJ  5
+#define JMP  6
+#define OSL  7
 #define NON_BASE_LAYERS layers = <NAV SYM ADJ OSL RNAV>;
 
 #define COMBOMS 20
@@ -362,6 +363,18 @@
                 , <&macro_tap &kp MACRO_PLACEHOLDER>
                 ;
         };
+
+        kc: kc { // ctrl tap then press control again and then go to homelayer, meant for ctrl + <key> ctrl + <key> chords
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings
+                = <&skq LCTRL>
+                , <&macro_param_1to1>
+                , <&macro_tap &kp MACRO_PLACEHOLDER>
+                , <&skq LCTRL>
+                , <&to BASE>
+                ;
+        };
     };
 
     behaviors {
@@ -469,6 +482,22 @@ display-name= "RNAVI"                              ;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
 
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+                cbase_layer {
+// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+display-name= "CBASE"                              ;
+// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+ bindings = <
+// ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
+
+    &kc Q       &kc W       &kc F       &kc P       &kc B           &kc J       &kc L       &kc U       &kc Y       &trans
+    &kc A       &kc R       &kc S       &kc T       &kc G           &kc M       &kc N       &kc E       &kc I       &kc O
+    &trans      &kc COMMA   &kc DOT     &kc D       &kc V           &kc K       &kc H       &kc C       &kc X       &kc Z
+                                        &csl NAV    &kp SPACE       &skq RSHFT  &csl SYM
+                        >;
+            sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                };
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 
