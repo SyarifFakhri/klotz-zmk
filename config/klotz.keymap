@@ -474,7 +474,7 @@ display-name= "RNAVI"                              ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
 
-    &m_b TAB    &kp N7      &kp N8      &kp N9      &trans         &trans      &m_b LEFT  &m_b UP     &m_b DOWN   &m_b RIGHT
+    &m_b TAB    &kp N7      &kp N8      &kp N9      &trans         &trans      &m_b LEFT  &m_b UP     &m_b DOWN   &kp BSPC
     &kp N0      &kp N4      &kp N5      &kp N6      &m_b MINUS     &trans      &skq RSHFT &skq RCTRL  &skq RALT   &skq LGUI
     &trans      &kp N1      &kp N2      &kp N3      &m_b KP_MULTIPLY &trans    &macro_up  &kp RET     &macro_down &trans
                                         &trans      &kp SPACE       &skq RSHFT &to BASE
@@ -511,7 +511,7 @@ display-name= "SYM"                               ;
     &kp PLUS    &kp UNDER   &kp KP_MULTIPLY &kp LBRC &kp RBRC       &kp GRAVE   &kp AMPS    &kp EQUAL   &kp FSLH    &kp COLON
     &kp EXCL    &kp PRCNT   &kp SEMI    &kp LPAR    &kp RPAR        &kp DLLR    &kp BSLH    &kp SQT     &kp DQT     &kp QMARK
     &kp CARET   &kp HASH    &kp AT      &kp LBKT    &kp RBKT        &kp TILDE   &trans      &trans      &trans      &kp MINUS
-                                        &kp PIPE    &trans          &kp CAPS    &kp LGUI
+                                        &kp PIPE    &trans          &to BASE    &kp LGUI
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
@@ -528,7 +528,7 @@ display-name= "ADJ"                               ;
 
     &sys_reset  &bt BT_CLR &kp LCTRL    &kp LSHFT   &bt BT_SEL 1    &trans      &kp F7      &kp F8      &kp F9      &kp F12
     &bootloader &bt BT_NXT &out OUT_BLE &trans      &bt BT_SEL 2    &trans      &kp F4      &kp F5      &kp F6      &kp F11  
-    &trans      &bt BT_PRV &out OUT_USB &trans      &bt BT_SEL 3    &trans      &kp F1      &kp F2      &kp F3      &kp F10     
+    &kp CAPS    &bt BT_PRV &out OUT_USB &trans      &bt BT_SEL 3    &trans      &kp F1      &kp F2      &kp F3      &kp F10     
                                         &bt BT_SEL 0 &skq LALT      &skq LCTRL  &skq RSHFT   
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
