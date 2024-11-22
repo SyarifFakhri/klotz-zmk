@@ -30,6 +30,14 @@
                 NON_BASE_LAYERS
             };
 
+            compatible = "zmk,combos";
+            combo_to_base {
+                timeout-ms = <COMBOMS>;
+                key-positions = <2 3>;
+                bindings = <&macro_vimsave>;
+                NON_BASE_LAYERS
+            };
+
            compatible = "zmk,combos";
            combo_ctrl_alt {
                 timeout-ms = <COMBOMS>;
@@ -232,12 +240,14 @@
                 , <&macro_release &kp LCTRL>
                 ;
         }; 
-        macro_ctrls: macro_ctrls {
+        macro_vimsave: macro_vimsave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp COLON>
                 , <&macro_tap &kp S>
+                , <&macro_tap &kp RET>
                 , <&macro_release &kp LCTRL>
                 ;
         }; 
@@ -510,7 +520,7 @@ display-name= "SYM"                               ;
 
     &kp PLUS    &kp UNDER   &kp KP_MULTIPLY &kp LBRC &kp RBRC       &kp GRAVE   &kp AMPS    &kp EQUAL   &kp FSLH    &kp COLON
     &kp EXCL    &kp PRCNT   &kp SEMI    &kp LPAR    &kp RPAR        &kp DLLR    &kp BSLH    &kp SQT     &kp DQT     &kp QMARK
-    &kp CARET   &kp HASH    &kp AT      &kp LBKT    &kp RBKT        &kp TILDE   &trans      &trans      &trans      &kp MINUS
+    &kp CARET   &kp HASH    &kp AT      &kp LBKT    &kp RBKT        &kp TILDE   &trans      &kp CAPS    &trans      &kp MINUS
                                         &kp PIPE    &trans          &to BASE    &kp LGUI
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -528,7 +538,7 @@ display-name= "ADJ"                               ;
 
     &sys_reset  &bt BT_CLR &kp LCTRL    &kp LSHFT   &bt BT_SEL 1    &trans      &kp F7      &kp F8      &kp F9      &kp F12
     &bootloader &bt BT_NXT &out OUT_BLE &trans      &bt BT_SEL 2    &trans      &kp F4      &kp F5      &kp F6      &kp F11  
-    &kp CAPS    &bt BT_PRV &out OUT_USB &trans      &bt BT_SEL 3    &trans      &kp F1      &kp F2      &kp F3      &kp F10     
+    &trans      &bt BT_PRV &out OUT_USB &trans      &bt BT_SEL 3    &trans      &kp F1      &kp F2      &kp F3      &kp F10     
                                         &bt BT_SEL 0 &skq LALT      &skq LCTRL  &skq RSHFT   
                         >;
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
