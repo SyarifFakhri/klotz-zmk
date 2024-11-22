@@ -31,7 +31,7 @@
             };
 
             compatible = "zmk,combos";
-            combo_to_base {
+            combo_vim_save {
                 timeout-ms = <COMBOMS>;
                 key-positions = <2 3>;
                 bindings = <&macro_vimsave>;
@@ -244,11 +244,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LCTRL>
-                , <&macro_tap &kp COLON>
+                = <&macro_tap &kp COLON>
                 , <&macro_tap &kp S>
                 , <&macro_tap &kp RET>
-                , <&macro_release &kp LCTRL>
                 ;
         }; 
          
